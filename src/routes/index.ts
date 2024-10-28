@@ -1,14 +1,34 @@
-import express from "express";
-//import EmpController from "../controllers/EmpController";
+import { Router,Request, Response, NextFunction } from "express";
 import EmpController from "../controllers/EmpController";
-//const empC = new EmpController();
-const router = express.Router();
-const getRoute = new EmpController();
+import logger from "../config/logger"; // Assuming logger is exported from a separate file, e.g., logger.ts
 
-router.get('/employee', getRoute.getAllEmployee);
-router.get('/employee/:id', getRoute.getEmployee);
-router.post('/employee', getRoute.creatEmployee);
-router.put('/employee/:id', getRoute.updateEmployee);
-router.delete('/employee/:id', getRoute.deleteEmployee);
+const router = Router();
+const empController = new EmpController();
+
+// Log each route and add error handling with logger
+router.get('/employee', (req:Request, res:Response) => {
+  logger.info("GET /employee accessed");
+  empController.getAllEmployee(req, res);
+});
+
+router.get('/employee/:id', (req, res, next) => {
+  logger.info(`GET /employee/${req.params.id} accessed`);
+  empController.getEmployee(req, res);
+});
+
+router.post('/employee', (req, res, next) => {
+  logger.info("POST /employee accessed");
+  empController.creatEmployee(req, res);
+});
+
+router.put('/employee/:id', (req, res, next) => {
+  logger.info(`PUT /employee/${req.params.id} accessed`);
+  empController.updateEmployee(req, res);
+});
+
+router.delete('/employee/:id', (req, res, next) => {
+  logger.info(`DELETE /employee/${req.params.id} accessed`);
+  empController.deleteEmployee(req, res);
+});
 
 export default router;
