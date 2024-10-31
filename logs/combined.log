@@ -4,3 +4,5 @@
 {"count":11,"level":"info","message":"Fetched all employees","timestamp":"2024-10-28T08:59:07.888Z"}
 {"level":"info","message":"::1 - - [28/Oct/2024:08:59:07 +0000] \"GET /employee HTTP/1.1\" 200 2226 \"-\" \"PostmanRuntime/7.42.0\"","timestamp":"2024-10-28T08:59:07.905Z"}
 {"level":"info","message":"::1 - - [28/Oct/2024:08:59:32 +0000] \"GET /employees HTTP/1.1\" 404 148 \"-\" \"PostmanRuntime/7.42.0\"","timestamp":"2024-10-28T08:59:32.038Z"}
+{"level":"info","message":"Server running on port 4000","timestamp":"2024-10-31T13:02:53.662Z"}
+{"level":"info","message":"DB connected","timestamp":"2024-10-31T13:02:53.717Z"}

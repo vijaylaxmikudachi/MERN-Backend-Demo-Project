@@ -4,6 +4,8 @@ import router from "./routes";
 import userRoutes from './routes/user.routes';
 import winston from "winston";
 import morgan from "morgan";
+import cors from 'cors';//cross origin resourse sharing 
+import helmet from 'helmet';//helmet for security
 
 const app = express();
 const MONGo_URL = 'mongodb://localhost:27017';
@@ -27,6 +29,8 @@ const logger = winston.createLogger({
 app.use(morgan('combined', { stream: { write: (message) => logger.info(message.trim()) } }));
 
 // Middleware
+app.use(cors());         // CORS middleware with default settings
+app.use(helmet());       // Helmet middleware for secure headers
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
