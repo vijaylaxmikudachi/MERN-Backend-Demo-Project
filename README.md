@@ -17,6 +17,9 @@ This project is a RESTful API for managing employees in a database, built using 
 - **Morgan**: HTTP request logger middleware, configured to work with Winston for efficient logging.
 - **Helmet**: Middleware for securing HTTP headers.
 - **CORS**: Middleware to enable cross-origin resource sharing, allowing secure access to the API from different origins.
+- **esLint**:Linting tool for adding coding rules.
+- **Redis**:Caching server.
+- **RabbitMQ**:Message Broker.
 
 ---
 
