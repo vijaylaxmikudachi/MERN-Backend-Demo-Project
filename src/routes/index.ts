@@ -1,7 +1,7 @@
 import { Router,Request, Response, NextFunction } from "express";
 import EmpController from "../controllers/EmpController";
 import logger from "../config/logger"; 
-import  {consumeMessages} from "../utils/rabbitmq";
+import  {consumeMessages} from "../utils/rabbitmq";//importing consume function
 
 
 const router = Router();

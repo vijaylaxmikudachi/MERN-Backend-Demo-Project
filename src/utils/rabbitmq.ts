@@ -2,6 +2,8 @@ import amqp from 'amqplib';
 
 const QUEUE_NAME = 'user-queue';
 
+//message from fundoo Note project
+
 export const  consumeMessages = async () => {
     try {
         const connection = await amqp.connect('amqp://localhost');
@@ -14,10 +16,8 @@ export const  consumeMessages = async () => {
         channel.consume(QUEUE_NAME, (msg) => {
             if (msg !== null) {
                 const message = msg.content.toString();
-                console.log(`Received message: ${message}`);
+                console.log(`Received message: ${message}`);//Registered user details
                 channel.ack(msg);
-
-                // Process the message here (e.g., update database)
             }
         });
     } catch (error) {
