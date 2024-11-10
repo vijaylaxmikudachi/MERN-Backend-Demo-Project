@@ -2,8 +2,10 @@ import winston from "winston";
 
 const logger = winston.createLogger({
   level: "info", // Adjust level as needed (e.g., debug, info, warn, error)
+  
   format: winston.format.combine(
     winston.format.timestamp(),
+    winston.format.colorize(),
     winston.format.json()
   ),
   transports: [

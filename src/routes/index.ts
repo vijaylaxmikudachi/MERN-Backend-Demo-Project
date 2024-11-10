@@ -1,9 +1,14 @@
 import { Router,Request, Response, NextFunction } from "express";
 import EmpController from "../controllers/EmpController";
-import logger from "../config/logger"; // Assuming logger is exported from a separate file, e.g., logger.ts
+import logger from "../config/logger"; 
+import  {consumeMessages} from "../utils/rabbitmq";
+
 
 const router = Router();
 const empController = new EmpController();
+
+// Initialize RabbitMQ connection
+consumeMessages();
 
 // Log each route and add error handling with logger
 router.get('/employee', (req:Request, res:Response) => {
